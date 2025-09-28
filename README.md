@@ -6,4 +6,13 @@ All cluster configurations are version-controlled, reviewed, and automatically r
 
 ## Managed Services, Pods and Resources
 
-***Add new services, pods and resources here.***
+### Infrastructure
+
+#### Juicefs
+
+[Juicefs](https://juicefs.com/zh-cn/) is a cloudnative high performance distributed file system. Flux manages:
+
+- Pod (Helm): `juicefs-csi-controller`
+- Pod (Helm): `juicefs-dashboard`
+- Pod (Helm): `juicefs-csi-node`
+- SC: `juicefs`
