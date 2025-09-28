@@ -3,8 +3,9 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: juicefs-sc
-  namespace: juicefs
+  namespace: flux-system
 spec:
+  targetNamespace: juicefs
   dependsOn:
     - name: secrets
       namespace: flux-system
