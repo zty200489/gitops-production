@@ -15,16 +15,6 @@ spec:
         kind: HelmRepository
         name: juicefs-csi-driver
         namespace: flux-system
-  values:
-    controller:
-      labels:
-        zty89.com/managed-by: flux
-    node:
-      labels:
-        zty89.com/managed-by: flux
-    dashboard:
-      labels:
-        zty89.com/managed-by: flux
   install:
     remediation:
       retries: 3
