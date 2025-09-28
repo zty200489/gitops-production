@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: gitlab-agent
   namespace: gitlab-agent
+  labels:
+    zty89.com/managed-by: flux
 spec:
   interval: 1h
   retryInterval: 1m

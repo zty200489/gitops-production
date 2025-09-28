@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: juicefs
   namespace: juicefs
+  labels:
+    zty89.com/managed-by: flux
 spec:
   interval: 1h
   retryInterval: 1m
