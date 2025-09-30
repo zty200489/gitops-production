@@ -23,8 +23,6 @@ spec:
       retries: 3
   values:
     grafana:
-      operator:
-        dashboardsConfigMapRefEnabled: true
       defaultDashboardsTimezone: "Asia/Shanghai"
       adminUser: admin
       adminPassword: "OPERATOR-password123A"
