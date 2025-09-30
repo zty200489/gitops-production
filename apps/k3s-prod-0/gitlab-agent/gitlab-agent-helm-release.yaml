@@ -17,7 +17,6 @@ spec:
     createNamespace: true
   interval: 1m0s
   releaseName: gitlab-agent
-  targetNamespace: gitlab-agent
   values:
     config:
       kasAddress: wss://gitlab.zty89.com/-/kubernetes-agent/
