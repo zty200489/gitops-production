@@ -12,3 +12,10 @@ metadata:
   name: juicefs
   labels:
     zty89.com/managed-by: flux
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-prometheus
+  labels:
+    zty89.com/managed-by: flux
