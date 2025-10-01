@@ -19,5 +19,39 @@ spec:
   releaseName: gitlab-agent
   values:
     config:
-      kasAddress: wss://gitlab.zty89.com/-/kubernetes-agent/
+      kasAddress: wss://gitlab.lan/-/kubernetes-agent/
       secretName: gitlab-agent-token
+      kasCaCert: |
+        -----BEGIN CERTIFICATE-----
+        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
+        -----END CERTIFICATE-----
