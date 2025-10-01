@@ -1,0 +1,20 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: juicefs-mounts-monitor
+  namespace: kube-prometheus
+  labels:
+    zty89.com/prometheus: default-prometheus
+spec:
+  namespaceSelector:
+    matchNames:
+      - juicefs
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: juicefs-mount
+  podMetricsEndpoints:
+    - port: metrics
+      path: '/metrics'
+      scheme: 'http'
+      interval: '10s'

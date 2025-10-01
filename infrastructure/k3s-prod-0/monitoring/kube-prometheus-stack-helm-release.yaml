@@ -21,11 +21,74 @@ spec:
     remediation:
       retries: 3
   values:
+    prometheus-node-exporter:
+      prometheus:
+        monitor:
+          additionalLabels:
+            zty89.com/prometheus: default-prometheus
+    kube-state-metrics:
+      prometheus:
+        monitor:
+          additionalLabels:
+            zty89.com/prometheus: default-prometheus
+    coreDns:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubeApiServer:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubeControllerManager:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubeDns:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubeEtcd:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubeProxy:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubeScheduler:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    kubelet:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    alertmanager:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+    prometheusOperator:
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
     grafana:
+      serviceMonitor:
+        labels:
+          zty89.com/prometheus: default-prometheus
       defaultDashboardsTimezone: "Asia/Shanghai"
       adminUser: admin
       adminPassword: "OPERATOR-password123A"
+      sidecar:
+        dashboards:
+          label: "zty89.com/grafana-dashboard"
+          labelValue: "1"
     prometheus:
+      thanosServiceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
+      serviceMonitor:
+        additionalLabels:
+          zty89.com/prometheus: default-prometheus
       prometheusSpec:
         retention: 32d
         storageSpec:
@@ -36,3 +99,15 @@ spec:
               resources:
                 requests:
                   storage: 1024Gi
+        serviceMonitorSelector:
+          matchLabels:
+            zty89.com/prometheus: default-prometheus
+        podMonitorSelector:
+          matchLabels:
+            zty89.com/prometheus: default-prometheus
+        probeSelector:
+          matchLabels:
+            zty89.com/prometheus: default-prometheus
+        scrapeConfigSelector:
+          matchLabels:
+            zty89.com/prometheus: default-prometheus
