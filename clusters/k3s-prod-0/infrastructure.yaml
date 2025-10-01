@@ -1,24 +1,24 @@
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: juicefs
-#   namespace: juicefs
-#   labels:
-#     zty89.com/managed-by: flux
-# spec:
-#   interval: 1h
-#   retryInterval: 1m
-#   timeout: 5m
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#     namespace: flux-system
-#   path: ./infrastructure/k3s-prod-0/juicefs
-#   prune: true
-#   commonMetadata:
-#     labels:
-#       zty89.com/managed-by: flux
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: juicefs
+  namespace: juicefs
+  labels:
+    zty89.com/managed-by: flux
+spec:
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  path: ./infrastructure/k3s-prod-0/juicefs
+  prune: true
+  commonMetadata:
+    labels:
+      zty89.com/managed-by: flux
 # ---
 # apiVersion: kustomize.toolkit.fluxcd.io/v1
 # kind: Kustomization

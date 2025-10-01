@@ -20,3 +20,18 @@ spec:
   upgrade:
     remediation:
       retries: 3
+  values:
+    storageClasses:
+      - name: "juicefs-0"
+        enabled: true
+        existingSecret: "juicefs-0-secret"
+        reclaimPolicy: Retain
+        allowVolumeExpansion: true
+        mountPod:
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 1Gi
+            limits:
+              cpu: 4000m
+              memory: 4Gi

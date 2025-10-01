@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - juicefs-helm-repository.yaml
   - juicefs-helm-release.yaml
-  - juicefs-sc.yaml
