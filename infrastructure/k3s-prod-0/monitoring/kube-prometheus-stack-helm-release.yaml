@@ -76,8 +76,15 @@ spec:
         labels:
           zty89.com/prometheus: default-prometheus
       defaultDashboardsTimezone: "Asia/Shanghai"
-      adminUser: admin
-      adminPassword: "OPERATOR-password123A"
+      admin:
+        existingSecret: grafana-admin-secret
+        userKey: grafana-admin-user
+        passwordKey: grafana-admin-password
+      ingress:
+        enabled: true
+        hosts:
+          - grafana.zty89.com
+        path: /
       sidecar:
         dashboards:
           label: "zty89.com/grafana-dashboard"
