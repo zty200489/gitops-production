@@ -19,3 +19,10 @@ metadata:
   name: kube-prometheus
   labels:
     zty89.com/managed-by: flux
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cnpg-system
+  labels:
+    zty89.com/managed-by: flux
