@@ -10,9 +10,23 @@ All cluster configurations are version-controlled, reviewed, and automatically r
 
 #### Juicefs
 
-[Juicefs](https://juicefs.com/zh-cn/) is a cloudnative high performance distributed file system. Flux manages:
+[Juicefs](https://juicefs.com/zh-cn/) is a cloudnative high performance distributed file system. Flux manages under namespace `juicefs`:
 
-- Pod (Helm): `juicefs-csi-controller`
-- Pod (Helm): `juicefs-dashboard`
-- Pod (Helm): `juicefs-csi-node`
-- SC: `juicefs`
+- HelmRelease: `juicefs-csi-driver`
+- StorageClass: `juicefs-0`
+- PodMonitor: `juicefs-mounts-monitor`
+- ConfigMap: `juicefs-dashboard`
+
+### Prometheus Stack
+
+[Kube Prometheus Stack](https://prometheus-operator.dev/) is a prometheus operator for kubernetes. Flux manages under namespace `kube-prometheus`:
+
+- HelmRelease: `kube-prometheus-stack`
+
+### Cloud Native PostgreSQL
+
+[Cloud Native PostgreSQL](https://cloudnative-pg.io/) is a cloud native solution for running postgresql in kubernetes. It offeres native WAL streaming replication, promary/standby clustering, and many more features. Flux manages under namespace `cnpg-system`:
+
+- HelmRelease: `cnpg`
+
+**Remark:** When creating clusters, be sure to create a custom `PodMonitor` for that cluster alongside it. Default setting `.spec.monitoring.enablePodMonitor` does not support custom labels, which failed to be automatically picked up by the prometheus operator.
