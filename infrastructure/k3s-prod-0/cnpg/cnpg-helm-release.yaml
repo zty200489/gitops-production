@@ -1,0 +1,37 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cnpg
+  namespace: cnpg-system
+spec:
+  interval: 24h
+  chart:
+    spec:
+      chart: cloudnative-pg
+      version: "0.26.0"
+      sourceRef:
+        kind: HelmRepository
+        name: cnpg-helm-repo
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 4Gi
+      requests:
+        cpu: 1000m
+        memory: 2Gi
+    monitoring:
+      podMonitorEnabled: true
+      grafanaDashboard:
+        create: true
+        namespace: "kube-prometheus"
+        labels:
+          zty89.com/grafana-dashboard: "1"
