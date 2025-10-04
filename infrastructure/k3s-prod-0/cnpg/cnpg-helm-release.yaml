@@ -30,6 +30,8 @@ spec:
         memory: 2Gi
     monitoring:
       podMonitorEnabled: true
+      podMonitorAdditionalLabels:
+        zty89.com/prometheus: default-prometheus
       grafanaDashboard:
         create: true
         namespace: "kube-prometheus"
