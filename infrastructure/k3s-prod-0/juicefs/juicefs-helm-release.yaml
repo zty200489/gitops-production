@@ -51,6 +51,10 @@ spec:
         existingSecret: "juicefs-0-secret"
         reclaimPolicy: Retain
         allowVolumeExpansion: true
+        mountOptions:
+          - backup-meta=86400
+          - backup-skip-trash
+          - cache-size=50G
         mountPod:
           resources:
             requests:
