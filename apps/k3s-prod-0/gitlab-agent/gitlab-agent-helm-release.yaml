@@ -18,6 +18,13 @@ spec:
   interval: 10m
   releaseName: gitlab-agent
   values:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 256Mi
+      limits:
+        cpu: 1000m
+        memory: 512Mi
     config:
       kasAddress: wss://gitlab.lan/-/kubernetes-agent/
       secretName: gitlab-agent-token

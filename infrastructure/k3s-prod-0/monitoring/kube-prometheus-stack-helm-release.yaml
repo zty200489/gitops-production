@@ -69,10 +69,33 @@ spec:
       serviceMonitor:
         additionalLabels:
           zty89.com/prometheus: default-prometheus
+      alertmanagerSpec:
+        resources:
+          requests:
+            cpu: 200m
+            memory: 200Mi
+          limits:
+            cpu: 400m
+            memory: 400Mi
     prometheusOperator:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100Mi
+        limits:
+          cpu: 200m
+          memory: 200Mi
       serviceMonitor:
         additionalLabels:
           zty89.com/prometheus: default-prometheus
+      prometheusConfigReloader:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
     grafana:
       serviceMonitor:
         labels:
@@ -100,6 +123,13 @@ spec:
           zty89.com/prometheus: default-prometheus
       prometheusSpec:
         retention: 32d
+        resources:
+          requests:
+            cpu: 500m
+            memory: 2Gi
+          limits:
+            cpu: 1000m
+            memory: 4Gi
         storageSpec:
           volumeClaimTemplate:
             spec:
