@@ -5,7 +5,7 @@ metadata:
   name: juicefs-csi-driver
   namespace: juicefs
 spec:
-  interval: 1h
+  interval: 10m
   chart:
     spec:
       chart: juicefs-csi-driver

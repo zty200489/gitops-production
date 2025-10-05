@@ -5,5 +5,5 @@ metadata:
   name: juicefs-csi-driver
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 24h
   url: https://juicedata.github.io/charts/

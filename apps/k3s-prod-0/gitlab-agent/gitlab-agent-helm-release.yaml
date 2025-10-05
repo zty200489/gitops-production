@@ -15,7 +15,7 @@ spec:
         namespace: flux-system
   install:
     createNamespace: true
-  interval: 1m0s
+  interval: 10m
   releaseName: gitlab-agent
   values:
     config:

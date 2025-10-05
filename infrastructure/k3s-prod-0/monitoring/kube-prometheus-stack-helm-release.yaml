@@ -5,7 +5,7 @@ metadata:
   name: kube-prometheus-stack
   namespace: kube-prometheus
 spec:
-  interval: 1h
+  interval: 10m
   chart:
     spec:
       chart: kube-prometheus-stack
@@ -31,6 +31,8 @@ spec:
         monitor:
           additionalLabels:
             zty89.com/prometheus: default-prometheus
+      metricLabelsAllowlist:
+        - pods=[app.kubernetes.io/instance,app.kubernetes.io/name]
     coreDns:
       serviceMonitor:
         additionalLabels:
