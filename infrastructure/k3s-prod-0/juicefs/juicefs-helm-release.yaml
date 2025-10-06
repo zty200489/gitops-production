@@ -25,7 +25,7 @@ spec:
       resources:
         requests:
           cpu: 100m
-          memory: 256Mi
+          memory: 128Mi
         limits:
           cpu: 1000m
           memory: 512Mi
@@ -33,18 +33,18 @@ spec:
       resources:
         requests:
           cpu: 100m
-          memory: 256Mi
+          memory: 50Mi
         limits:
-          cpu: 1000m
-          memory: 512Mi
+          cpu: 100m
+          memory: 200Mi
     dashboard:
       resources:
         requests:
           cpu: 100m
-          memory: 200Mi
+          memory: 100Mi
         limits:
           cpu: 1000m
-          memory: 512Mi
+          memory: 200Mi
     globalConfig:
       mountPodPatch:
         - resources:
