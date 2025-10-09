@@ -69,7 +69,7 @@ spec:
             - writeback_cache
             - writeback
             - buffer-size=1G
-            - prefetch=0
+            - prefetch=1
             - max-readahead=0
     storageClasses:
       - name: "juicefs-0"
