@@ -65,6 +65,7 @@ spec:
             - backup-meta=86400
             - backup-skip-trash
             - cache-size=50G
+            - upload-delay=5s
             - writeback_cache
             - writeback
             - buffer-size=1G
