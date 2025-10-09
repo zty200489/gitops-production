@@ -37,6 +37,9 @@ spec:
         namespace: "kube-prometheus"
         labels:
           zty89.com/grafana-dashboard: "1"
+    config:
+      data:
+        INHERITED_LABELS: zty89.com/*
     monitoringQueriesConfigMap:
       # -- The name of the default monitoring configmap.
       name: cnpg-default-monitoring
