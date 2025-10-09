@@ -336,7 +336,7 @@ statement latencies in milliseconds and failures:
          1.311           0  END;
 ```
 
-The benchmark reaches a peak performance of `2700` r/w mixed transactions per second. Theses experiments shows the importnace of keeping an eye on performance degredations, and increasing memory limit during production.
+The benchmark reaches a peak performance of `2700` r/w mixed transactions per second. These experiments shows the importnace of keeping an eye on performance degredations, and increasing memory limit during production.
 
 ---
 
