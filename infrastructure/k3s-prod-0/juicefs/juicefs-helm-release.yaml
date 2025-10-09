@@ -62,9 +62,11 @@ spec:
             matchLabels:
               zty89.com/env: "database"
           mountOptions:
+            - backup-meta=86400
+            - backup-skip-trash
+            - cache-size=50G
             - writeback_cache
             - writeback
-            - cache-large-write
             - buffer-size=1G
             - prefetch=0
             - max-readahead=0
