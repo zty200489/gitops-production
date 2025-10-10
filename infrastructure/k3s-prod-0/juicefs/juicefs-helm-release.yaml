@@ -56,19 +56,14 @@ spec:
               memory: 4Gi
           mountOptions:
             - backup-meta=86400
-            - backup-skip-trash
             - cache-size=50G
         - pvcSelector:
             matchLabels:
               zty89.com/env: "database"
           mountOptions:
             - backup-meta=86400
-            - backup-skip-trash
             - cache-size=50G
-            - upload-delay=5s
             - writeback_cache
-            - writeback
-            - buffer-size=1G
             - prefetch=1
             - max-readahead=0
     storageClasses:
