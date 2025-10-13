@@ -57,13 +57,12 @@ spec:
           mountOptions:
             - backup-meta=86400
             - cache-size=50G
+            - writeback_cache
+            - cache-expire=3600
         - pvcSelector:
             matchLabels:
               zty89.com/env: "database"
           mountOptions:
-            - backup-meta=86400
-            - cache-size=50G
-            - writeback_cache
             - prefetch=1
             - max-readahead=0
     storageClasses:
