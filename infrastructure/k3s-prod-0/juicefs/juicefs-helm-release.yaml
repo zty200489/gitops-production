@@ -63,7 +63,13 @@ spec:
             matchLabels:
               zty89.com/env: "database"
           mountOptions:
-            - prefetch=0
+            - backup-meta=86400
+            - cache-size=50G
+            - writeback_cache
+            - writeback
+            - upload-delay=5
+            - cache-expire=3600
+            - cache-partial-only
             - max-readahead=0
     storageClasses:
       - name: "juicefs-0"
