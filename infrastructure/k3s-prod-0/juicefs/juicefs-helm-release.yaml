@@ -63,7 +63,7 @@ spec:
             matchLabels:
               zty89.com/env: "database"
           mountOptions:
-            - prefetch=1
+            - prefetch=0
             - max-readahead=0
     storageClasses:
       - name: "juicefs-0"
