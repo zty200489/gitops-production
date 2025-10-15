@@ -26,3 +26,10 @@ metadata:
   name: cnpg-system
   labels:
     zty89.com/managed-by: flux
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: storage
+  labels:
+    zty89.com/managed-by: flux

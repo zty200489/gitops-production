@@ -1,0 +1,73 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: democratic-csi
+  namespace: storage
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: democratic-csi
+      version: "0.15.0"
+      sourceRef:
+        kind: HelmRepository
+        name: democratic-csi
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    csiDriver:
+      name: "truenas.democratic-csi.iscsi"
+    storageClasses:
+      - name: "iscsi"
+        defaultClass: false
+        reclaimPolicy: Delete
+        volumeBindingMode: Immediate
+        allowVolumeExpansion: true
+        parameters:
+          fsType: xfs
+        mountOptions: []
+        secrets:
+          provisioner-secret:
+          controller-publish-secret:
+          node-stage-secret:
+          node-publish-secret:
+          controller-expand-secret:
+    driver:
+      config:
+        driver: freenas-api-iscsi
+        instance_id:
+        httpConnection:
+          protocol: http
+          host: 192.168.32.24
+          port: 80
+          apiKey: 1-SDYiHU8Of6YfAiGrZDqPNap83CXYd1GHdnSesSYhE8FIa77AjKZ4FIUqqtDbN2U1
+          allowInsecure: true
+        zfs:
+          datasetParentName: vault/iscsi/v
+          detachedSnapshotsDatasetParentName: vault/iscsi/s
+          zvolCompression:
+          zvolDedup:
+          zvolEnableReservation: false
+          zvolBlocksize: 64K
+        iscsi:
+          targetPortal: "192.168.32.24:3260"
+          interface:
+          namePrefix: csi-
+          nameSuffix: "-production"
+          targetGroups:
+            - targetGroupPortalGroup: 1
+              targetGroupInitiatorGroup: 1
+              targetGroupAuthType: None
+              targetGroupAuthGroup:
+          extentInsecureTpc: true
+          extentXenCompat: false
+          extentDisablePhysicalBlocksize: true
+          extentBlocksize: 512
+          extentRpm: "SSD"
+          extentAvailThreshold: 0
