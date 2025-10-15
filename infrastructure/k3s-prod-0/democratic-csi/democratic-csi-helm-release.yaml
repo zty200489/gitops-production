@@ -21,6 +21,10 @@ spec:
     remediation:
       retries: 3
   values:
+    controller:
+      driver:
+        image:
+          tag: next # Temporary solution for TrueNAS-25.04
     csiDriver:
       name: "truenas.democratic-csi.iscsi"
     storageClasses:
