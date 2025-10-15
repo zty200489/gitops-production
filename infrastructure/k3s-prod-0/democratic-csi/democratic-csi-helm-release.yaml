@@ -72,7 +72,6 @@ spec:
             cpu: 100m
             memory: 128Mi
           limits:
-            cpu: 1000m
             memory: 256Mi
     node:
       cleanup:
@@ -89,7 +88,6 @@ spec:
             cpu: 200m
             memory: 128Mi
           limits:
-            cpu: 1000m
             memory: 256Mi
       driverRegistrar:
         resources:
