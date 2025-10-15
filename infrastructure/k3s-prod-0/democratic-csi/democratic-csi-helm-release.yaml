@@ -21,12 +21,84 @@ spec:
     remediation:
       retries: 3
   values:
+    csiProxy:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 16Mi
+        limits:
+          cpu: 1000m
+          memory: 64Mi
+    csiDriver:
+      name: "truenas.democratic-csi.iscsi"
     controller:
+      externalAttacher:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 16Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
+      externalProvisioner:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 16Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
+      externalResizer:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 16Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
+      externalSnapshotter:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 16Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
       driver:
         image:
           tag: next # Temporary solution for TrueNAS-25.04
-    csiDriver:
-      name: "truenas.democratic-csi.iscsi"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 1000m
+            memory: 256Mi
+    node:
+      cleanup:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 16Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
+      driver:
+        resources:
+          requests:
+            cpu: 200m
+            memory: 128Mi
+          limits:
+            cpu: 1000m
+            memory: 256Mi
+      driverRegistrar:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 16Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
     storageClasses:
       - name: "iscsi"
         defaultClass: false
@@ -42,6 +114,12 @@ spec:
           node-stage-secret:
           node-publish-secret:
           controller-expand-secret:
+    volumeSnapshotClasses:
+      - name: "iscsi-snapshotclass"
+        deletionPolicy: Delete
+        parameters:
+        secrets:
+          snapshotter-secret:
     driver:
       config:
         driver: freenas-api-iscsi
