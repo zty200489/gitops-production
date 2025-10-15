@@ -114,12 +114,12 @@ spec:
           node-stage-secret:
           node-publish-secret:
           controller-expand-secret:
-    volumeSnapshotClasses:
-      - name: "iscsi-snapshotclass"
-        deletionPolicy: Delete
-        parameters:
-        secrets:
-          snapshotter-secret:
+    # volumeSnapshotClasses:
+    #   - name: "iscsi-snapshotclass"
+    #     deletionPolicy: Delete
+    #     parameters:
+    #     secrets:
+    #       snapshotter-secret:
     driver:
       config:
         driver: freenas-api-iscsi
