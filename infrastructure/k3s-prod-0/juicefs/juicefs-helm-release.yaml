@@ -65,11 +65,9 @@ spec:
           mountOptions:
             - backup-meta=86400
             - cache-size=50G
-            - writeback_cache
             - writeback
-            - upload-delay=5
+            - upload-delay=600
             - cache-expire=3600
-            - cache-partial-only
             - max-readahead=0
     storageClasses:
       - name: "juicefs-0"
