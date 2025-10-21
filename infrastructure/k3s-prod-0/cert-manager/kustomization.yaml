@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - cert-manager-helm-repository.yaml
   - cert-manager-helm-release.yaml
-  - issuer-and-certs.yaml
+  - issuers-and-certs.yaml
