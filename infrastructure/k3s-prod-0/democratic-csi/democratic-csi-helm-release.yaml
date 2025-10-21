@@ -100,7 +100,7 @@ spec:
     storageClasses:
       - name: "iscsi"
         defaultClass: false
-        reclaimPolicy: Delete
+        reclaimPolicy: Retain
         volumeBindingMode: Immediate
         allowVolumeExpansion: true
         parameters:
@@ -119,35 +119,6 @@ spec:
     #     secrets:
     #       snapshotter-secret:
     driver:
+      existingConfigSecret: democratic-csi-iscsi-driver-config
       config:
         driver: freenas-api-iscsi
-        instance_id:
-        httpConnection:
-          protocol: http
-          host: 192.168.32.24
-          port: 80
-          apiKey: 1-SDYiHU8Of6YfAiGrZDqPNap83CXYd1GHdnSesSYhE8FIa77AjKZ4FIUqqtDbN2U1
-          allowInsecure: true
-        zfs:
-          datasetParentName: vault/iscsi/v
-          detachedSnapshotsDatasetParentName: vault/iscsi/s
-          zvolCompression:
-          zvolDedup:
-          zvolEnableReservation: false
-          zvolBlocksize: 64K
-        iscsi:
-          targetPortal: "192.168.32.24:3260"
-          interface:
-          namePrefix: csi-
-          nameSuffix: "-production"
-          targetGroups:
-            - targetGroupPortalGroup: 1
-              targetGroupInitiatorGroup: 1
-              targetGroupAuthType: None
-              targetGroupAuthGroup:
-          extentInsecureTpc: true
-          extentXenCompat: false
-          extentDisablePhysicalBlocksize: true
-          extentBlocksize: 512
-          extentRpm: "SSD"
-          extentAvailThreshold: 0
