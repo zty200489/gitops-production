@@ -20,6 +20,29 @@ spec:
     remediation:
       retries: 3
   values:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 32Mi
+      limits:
+        cpu: 1000m
+        memory: 64Mi
+    mutatingWebhookConfiguration:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 32Mi
+        limits:
+          cpu: 1000m
+          memory: 32Mi
+    cainjector:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 40Mi
+        limits:
+          cpu: 1000m
+          memory: 64Mi
     crds:
       enabled: true
       keep: false
