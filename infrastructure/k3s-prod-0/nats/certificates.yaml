@@ -53,5 +53,3 @@ spec:
     - "*.primary-nats-headless"
     - "*.primary-nats-headless.nats.svc.cluster.local"
     - localhost
-  ipAddresses:
-    - "127.0.0.1"
