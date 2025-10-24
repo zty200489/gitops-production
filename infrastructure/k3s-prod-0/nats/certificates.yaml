@@ -1,0 +1,51 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nats-ca
+  namespace: nats
+spec:
+  isCA: true
+  secretName: nats-ca-tls
+  privateKey:
+    algorithm: Ed25519
+  issuerRef:
+    name: self-signed-issuer
+    kind: ClusterIssuer
+  usages:
+    - cert sign
+  duration: 43800h
+  renewBefore: 768h
+  commonName: nats-ca
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: nats-ca-issuer
+  namespace: nats
+spec:
+  ca:
+    secretName: nats-ca-tls
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nats-server-tls
+  namespace: nats
+spec:
+  isCA: false
+  secretName: nats-server-tls
+  privateKey:
+    algorithm: Ed25519
+  issuerRef:
+    name: nats-ca-issuer
+    kind: Issuer
+  usages:
+    - signing
+    - server auth
+  duration: 8760h
+  renewBefore: 768h
+  dnsNames:
+    - "*.nats.svc"
+    - "*.nats.svc.cluster.local"
+    - localhost
