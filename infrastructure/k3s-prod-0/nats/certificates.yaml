@@ -48,8 +48,9 @@ spec:
   duration: 8760h
   renewBefore: 768h
   dnsNames:
-    - "shanghai0"
-    - "shanghai0.nats.svc.cluster.local"
-    - "*.shanghai0-headless"
-    - "*.shanghai0-headless.nats.svc.cluster.local"
+    - "primary"
+    - "primary.nats.svc.cluster.local"
+    - "*.primary-headless"
+    - "*.primary-headless.nats.svc.cluster.local"
     - localhost
+    - "127.0.0.1"
