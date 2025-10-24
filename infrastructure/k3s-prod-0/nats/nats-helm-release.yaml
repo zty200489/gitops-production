@@ -72,3 +72,5 @@ spec:
           metadata:
             labels:
               zty89.com/prometheus: default-prometheus
+    natsBox:
+      enabled: false
