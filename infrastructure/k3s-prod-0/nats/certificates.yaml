@@ -43,6 +43,7 @@ spec:
   usages:
     - signing
     - server auth
+    - client auth
     - digital signature
   duration: 8760h
   renewBefore: 768h
