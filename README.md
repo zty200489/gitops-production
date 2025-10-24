@@ -8,6 +8,18 @@ All cluster configurations are version-controlled, reviewed, and automatically r
 
 ### Infrastructure
 
+#### NATS
+
+[NATS](https://nats.io/) is a simple, secure and high performance open source data layer for cloud native applications, IoT messaging, and microservices architectures. It is an adaptive, high performance, distributed, and scalable message exchange middleware, providing basic functionalities like message queues (core NATS), persistent message queues (NATS Jetstream), and message routing (subjects and consumers), as well as more versatile microservice middlewares like K/V stores and Object stores.
+
+NATS was accepted to [**CNCF**](https://www.cncf.io/projects/nats/) on March 15, 2018 at the Incubating maturity level.
+
+Flux maanges the following resources under the namespace `nats`:
+
+- HelmRelease: `primary`
+- Issuer: `nats-ca-issuer`
+- Certificates: `nats-ca`, `nats-server`
+
 #### Cert Manager
 
 [Cert Manager](https://cert-manager.io/) is a a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry.
@@ -47,7 +59,7 @@ Flux manages the following resources under the namespace `juicefs`:
 
 [Kube Prometheus Stack](https://prometheus-operator.dev/) is a prometheus operator for kubernetes.
 
-Kube Prometheus Stack is a **jointly maintained community project** that adapts prometheus for kubernetes using operators. It is an abstaction atop the existing popular monitoring solution including [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/grafana/), which themselves are maintained by [Grafana Labs](https://grafana.com/). The company profits through enterprice SaaS, and is actively maintaining the projects.
+Kube Prometheus Stack is a **jointly maintained community project** that adapts prometheus for kubernetes using operators. It is an abstaction atop the existing popular monitoring solution including [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/grafana/), which themselves are maintained by [**Grafana Labs**](https://grafana.com/). The company profits through enterprice SaaS, and is actively maintaining the projects.
 
 Flux manages the following resources under the namespace `kube-prometheus`:
 
@@ -57,7 +69,7 @@ Flux manages the following resources under the namespace `kube-prometheus`:
 
 [Cloud Native PostgreSQL](https://cloudnative-pg.io/) is a cloud native solution for running postgresql in kubernetes using operators. It offeres native WAL streaming replication, promary/standby clustering, and many more features.
 
-CNPG was originally created by [EDB](https://www.enterprisedb.com/products/edb-postgres-ai-for-cloudnativepg) and was accepted to [CNCF](https://www.cncf.io/projects/cloudnativepg/) on January 21, 2025 at the Sandbox maturity level.
+CNPG was originally created by [**EDB**](https://www.enterprisedb.com/products/edb-postgres-ai-for-cloudnativepg) and was accepted to [**CNCF**](https://www.cncf.io/projects/cloudnativepg/) on January 21, 2025 at the Sandbox maturity level.
 
 Flux manages the following resources under the namespace `cnpg-system`:
 
