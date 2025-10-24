@@ -48,9 +48,9 @@ spec:
   duration: 8760h
   renewBefore: 768h
   dnsNames:
-    - "primary"
-    - "primary.nats.svc.cluster.local"
-    - "*.primary-headless"
-    - "*.primary-headless.nats.svc.cluster.local"
+    - "primary-nats"
+    - "primary-nats.nats.svc.cluster.local"
+    - "*.primary-nats-headless"
+    - "*.primary-nats-headless.nats.svc.cluster.local"
     - localhost
     - "127.0.0.1"
