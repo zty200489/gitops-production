@@ -48,4 +48,6 @@ spec:
   dnsNames:
     - "*.nats.svc"
     - "*.nats.svc.cluster.local"
+    - "*.shanghai0.nats.svc"
+    - "*.shanghai0.nats.svc.cluster.local"
     - localhost

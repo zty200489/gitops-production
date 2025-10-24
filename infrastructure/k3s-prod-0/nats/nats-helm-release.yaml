@@ -21,9 +21,10 @@ spec:
     remediation:
       retries: 3
   values:
+    fullnameOverride: shanghai0
     tlsCA:
       enabled: true
-      secretName: nats-ca-tls
+      secretName: nats-server-tls
     config:
       cluster:
         enabled: true
@@ -31,8 +32,6 @@ spec:
         tls:
           enabled: true
           secretName: nats-server-tls
-        merge:
-          name: main
       jetstream:
         enabled: true
         fileStore:
