@@ -40,3 +40,10 @@ metadata:
   name: cert-manager
   labels:
     zty89.com/managed-by: flux
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nats
+  labels:
+    zty89.com/managed-by: flux
