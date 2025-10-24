@@ -50,4 +50,6 @@ spec:
     - "*.nats.svc.cluster.local"
     - "*.shanghai0.nats.svc"
     - "*.shanghai0.nats.svc.cluster.local"
+    - "*.shanghai0-headless.nats.svc"
+    - "*.shanghai0-headless.nats.svc.cluster.local"
     - localhost
