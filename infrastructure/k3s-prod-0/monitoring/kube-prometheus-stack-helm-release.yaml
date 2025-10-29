@@ -121,7 +121,12 @@ spec:
       serviceMonitor:
         additionalLabels:
           zty89.com/prometheus: default-prometheus
+      service:
+        enabled: true
+        type: NodePort
+        nodePort: 30010
       prometheusSpec:
+        enableRemoteWriteReceiver: true
         retention: 32d
         resources:
           requests:
@@ -130,6 +135,8 @@ spec:
           limits:
             cpu: 1000m
             memory: 4Gi
+        externalLabels:
+          cluster: k3s-production-0
         storageSpec:
           volumeClaimTemplate:
             spec:
