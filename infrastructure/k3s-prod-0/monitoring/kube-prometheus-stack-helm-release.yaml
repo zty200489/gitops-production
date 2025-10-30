@@ -141,7 +141,7 @@ spec:
             relabelings:
               - sourceLabels: [ __name__ ]
                 regex: (.*)
-                targetLabel: cluster
+                targetLabel: kube_cluster
                 replacement: k3s-production-0
                 action: replace
         storageSpec:
