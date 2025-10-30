@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - kube-prometheus-stack-helm-repository.yaml
   - kube-prometheus-stack-helm-release.yaml
+  - infrastructure-prometheus-dashboard.yaml
