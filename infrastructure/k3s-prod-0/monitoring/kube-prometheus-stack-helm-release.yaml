@@ -144,6 +144,11 @@ spec:
                 targetLabel: kube_cluster
                 replacement: k3s-production-0
                 action: replace
+              - sourceLabels: [ __name__ ]
+                regex: (.*)
+                targetLabel: prometheus_instance
+                replacement: k3s-production-0-default
+                action: replace
         storageSpec:
           volumeClaimTemplate:
             spec:
