@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog
+  namespace: apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      zty89.com/app: blog
+  template:
+    metadata:
+      labels:
+        zty89.com/app: blog
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: server
+        image: registry.gitlab.lan/apps/blog/blog:v0.1.0
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: vol-configs
+          mountPath: /app/config.json
+          subPath: config.json
+      volumes:
+      - name: vol-configs
+        configMap:
+          name: blog-config
+      imagePullSecrets:
+      - name: gitlab-registry-token
